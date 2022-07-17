@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>HDFS - 计算环境使用说明</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "HDFS";
+    var mkdocs_page_input_path = "dsc\\hdfs.md";
+    var mkdocs_page_url = "/dsc/hdfs/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 计算环境使用说明</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">概述</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">分布式存储与计算</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../jupyter/">JupyterHub</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../conda/">Anaconda</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../pyspark/">PySpark</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../scala/">Scala</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">HDFS</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#hdfs">HDFS使用说明</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#spark">Spark读取文件</a></li>
+        
+            <li><a class="toctree-l4" href="#hdfs_1">HDFS是什么</a></li>
+        
+            <li><a class="toctree-l4" href="#hdfs_2">HDFS入门</a></li>
+        
+            <li><a class="toctree-l4" href="#_6">参考文献</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sshlinux/">ssh&Linux常用操作</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/">管理员说明</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">数据库</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../mysql/">MySQL使用说明</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">关于</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">计算环境使用说明</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>分布式存储与计算 &raquo;</li>
+        
+      
+    
+    <li>HDFS</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="hdfs">HDFS使用说明</h1>
+<h2 id="spark">Spark读取文件</h2>
+<p>Spark读取和存储文件时输入的文件路径实际上是文件对应的URI，所以直接输入文件路径读数据集有时候会遇到类似"file not found"报错，这是因为目前服务器启动了HDFS（Hadoop Distributed File System），是一个单独的文件系统，<strong>Spark对于未声明协议头的URI会优先在HDFS中寻找</strong>。</p>
+<h3 id="spark_1">Spark读取本地文件</h3>
+<p>因此对于<strong>本地文件，需要在路径前加入<code>file://</code>协议头</strong>来向spark说明这是一个本地文件，比如读取用户<code>lzh</code>的家目录<code>/home/lzh</code>下的<code>WineData.csv</code>数据集：</p>
+<pre><code class="language-Python">df = spark.read.format('com.databricks.spark.csv') \
+    .options(header='true', inferschema='true') \
+    .load(&quot;file:///home/lzh/WineData.csv&quot;,header=True)
+</code></pre>
+<p>注意"/"的个数，并且这里必须使用绝对路径，可以在命令行中使用<code>pwd</code>命令查看。</p>
+<p>Spark自带的数据集的本地文件在<code>/usr/local/spark/data</code>中。</p>
+<h3 id="sparkhdfs">Spark读取HDFS文件</h3>
+<p>虽然你完全可以一直使用本地文件作为输入输出，但是毕竟我们学的是分布式存储与计算，HDFS是分布式存储中非常常用的一个文件系统，所以非常建议同学们尝试用Spark读入HDFS数据集，并练习使用HDFS，这其实很简单，只需要把URI的协议头改成<code>hdfs://</code>即可，如下读取hdfs的<code>/Data</code>目录下的WineData.csv：</p>
+<pre><code class="language-Python">df = spark.read.format('com.databricks.spark.csv') \
+    .options(header='true', inferschema='true') \
+    .load(&quot;hdfs:///Data/WineData.csv&quot;,header=True)
+</code></pre>
+<h2 id="hdfs_1">HDFS是什么</h2>
+<p>HDFS（Hadoop Distributed File System），作为Google File System（GFS）的实现，是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流数据模式访问和处理超大文件的需求而开发的，可以运行于廉价的商用服务器上。它所具有的高容错、高可靠性、高可扩展性、高获得性、高吞吐率等特征为海量数据提供了不怕故障的存储，为超大数据集（Large Data Set）的应用处理带来了很多便利。（来源：https://www.jianshu.com/p/f1e785fffd4d）</p>
+<p>总的来说，就是专门为分布式系统设计的文件系统，是运行在Hadoop上的。你可能又会问：Hadoop是什么？这里我们不做更多赘述，你可以理解为一个分布式系统的基础框架，包括文件系统HDFS，进程调度管理Yarn，可以作为Spark的底层运行环境之一（如果你尝试自己安装Spark就会发现在官网下载安装包时会提示你选择hadoop的版本）。</p>
+<h2 id="hdfs_2">HDFS入门</h2>
+<p>用于HDFS是单独的文件系统，所以里面有什么文件在JupyterHub没法直接展示，但是我们可以通过命令行或者HDFS的web界面查看，这样才知道数据集在哪儿怎么读。</p>
+<h3 id="webui">最简单的方式：webUI</h3>
+<p>访问http://10.40.13.202:50070/即可访问hdfs的管理节点（namenode），选择Utilities中的Browse the file system即可查看
+<img alt="" src="../../assets/img/hdfs1.png" /></p>
+<h3 id="hdfs-dfs">使用hdfs dfs命令</h3>
+<p>web界面虽然直观，但在做批量文件操作时非常不方便，所以建议在JupyterHub的Terminal中使用<code>hdfs dfs</code>系列命令访问。作为初学者，我们先了解hdfs的增删改查就够了。</p>
+<p>HDFS 命令行的统一格式如下。</p>
+<pre><code>hdfs dfs -cmd &lt;args&gt;
+</code></pre>
+<p>其中，cmd是具体的文件操作命令，<args>是一组数目可变的参数。</p>
+<h4 id="_1">添加和查看目录</h4>
+<p>创建文件夹</p>
+<pre><code>hdfs dfs -mkdir -p /usr/root
+</code></pre>
+<p>查看目录中的文件(-ls后添加-R选项可以递归查看)</p>
+<pre><code>hdfs dfs -ls /
+</code></pre>
+<h4 id="hdfs_3">本地文件系统与HDFS的数据传输</h4>
+<p>使用-copyFromlocal将本地文件上传到 HDFS。</p>
+<pre><code>hdfs dfs -copyFromLocal 本地文件路径 HDFS文件路径 
+</code></pre>
+<p>下载文件是指从 HDFS 中获取文件，可以使用hdfs dfs -copyToLocal命令。</p>
+<pre><code>hdfs dfs -copyToLocal HDFS文件路径 本地文件路径
+</code></pre>
+<h4 id="_2">删除文件和目录</h4>
+<p>删除某个文件</p>
+<pre><code>hdfs dfs -rm README.txt
+</code></pre>
+<p>删除目录中所有文件</p>
+<pre><code>hdfs dfs -rm -r dir
+</code></pre>
+<h4 id="_3">检索文件</h4>
+<p>使用cat命令</p>
+<pre><code>hdfs dfs -cat README.txt
+</code></pre>
+<p>tail命令可以只显示文件的末尾</p>
+<pre><code>hdfs dfs -tail README.txt
+</code></pre>
+<h4 id="_4">查阅帮助</h4>
+<p>查阅HDFS命令帮助，可以更好地了解和使用HDFS的命令。用户可以执行hdfs dfs来获取所用版本HDFS的一个完整命令类别，也可以使用help来显示某个具体命令的用法及简短描述。例如，要了解ls命令，可执行以下命令。</p>
+<pre><code>hdfs dfs -help ls
+</code></pre>
+<h4 id="_5">修改文件</h4>
+<p>看到这里你可能会发现，为什么没有文件的修改命令？因为HDFS为考虑系统的可靠性和大数据“一次写，大量读”的场景，<strong>不支持文件的修改操作</strong>，文件一旦上传则是只读的，<strong>如果想修改它，必须删除之后创建新的文件</strong>。</p>
+<h2 id="_6">参考文献</h2>
+<p>如果相对HDFS和hadoop有更多了解，建议同学们阅读如下链接
+https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html<br />
+https://www.w3cschool.cn/hadoop/
+HDFS命令大全https://blog.csdn.net/m0_38003171/article/details/79086780</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sshlinux/" class="btn btn-neutral float-right" title="ssh&Linux常用操作">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../scala/" class="btn btn-neutral" title="Scala"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../scala/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../sshlinux/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
