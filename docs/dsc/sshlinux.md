@@ -6,7 +6,7 @@ Windows10、Linux、MacOS可以直接在cmd/Powershell/Terminal中输入ssh命�
 ssh 用户名@10.40.13.202
 ```
 ### SSH客户端 MobaXterm
-推荐在windows上使用的mobaxterm而不是命令行，[官网](https://mobaxterm.mobatek.net/download-home-edition.html)可能下载比较慢，服务器上保存了安装包，[点击这里](../assets/MobaXterm_Portable_v21.1.zip)下载
+推荐在windows上使用的mobaxterm而不是命令行，[官网](https://mobaxterm.mobatek.net/download-home-edition.html)可能下载比较慢，服务器上保存了安装包
 
 配置步骤
 1. 打开MobaXterm，点击session按钮新建一个会话，选择ssh
