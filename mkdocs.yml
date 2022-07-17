@@ -1,0 +1,21 @@
+site_name: 计算环境使用说明
+site_url: http://10.40.13.202
+
+nav:
+  - '概述': 'index.md'
+  - '分布式存储与计算':
+    - 'JupyterHub': 'dsc/jupyter.md'
+    - 'Anaconda': 'dsc/conda.md'
+    - 'PySpark': 'dsc/pyspark.md'
+    - 'Scala': 'dsc/scala.md'
+    - 'HDFS': 'dsc/hdfs.md'
+    - 'ssh&Linux常用操作': 'dsc/sshlinux.md'
+    - '管理员说明': 'dsc/admin.md'
+  - '数据库':
+    - 'MySQL使用说明': 'mysql.md'
+  - '关于': 'about.md'
+# - ['about/admin.md', '关于', '管理员说明']
+# - ['about/license.md', '关于', 'License']
+
+theme:
+  name: readthedocs

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="http://10.40.13.202/dsc/pyspark/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>PySpark - 计算环境使用说明</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "PySpark";
+    var mkdocs_page_input_path = "dsc\\pyspark.md";
+    var mkdocs_page_url = "/dsc/pyspark/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 计算环境使用说明</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">概述</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">分布式存储与计算</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../jupyter/">JupyterHub</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../conda/">Anaconda</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">PySpark</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#notebook">Notebook</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_1">命令行终端</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#spark-submit">spark-submit</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pyspark">PySpark入门</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../scala/">Scala</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../hdfs/">HDFS</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sshlinux/">ssh&Linux常用操作</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../admin/">管理员说明</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">数据库</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../mysql/">MySQL使用说明</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/">关于</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">计算环境使用说明</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>分布式存储与计算 &raquo;</li>
+        
+      
+    
+    <li>PySpark</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="jupyterhubpyspark">如何在JupyterHub上使用PySpark</h1>
+<p>PySpark已经安装到jupyterhub环境中，启动一个notebook即可访问</p>
+<h2 id="notebook">Notebook</h2>
+<p>jupyterhub默认的python环境中已经安装了PySpark库，无需使用findspark，通过pyspark的API可以自行创建SparkContext和SparkSession。下面给出一个例子</p>
+<pre><code class="language-python">from pyspark.sql import SparkSession
+from pyspark import SparkContext
+sc = SparkContext('local', '起个任务名字', '/usr/local/spark')
+spark = SparkSession(sc)
+</code></pre>
+<pre><code class="language-python"># 读入hdfs文件
+df = spark.read.format('com.databricks.spark.csv') \
+    .options(header='true', inferschema='true') \
+    .load(&quot;hdfs:///Data/WineData.csv&quot;,header=True)
+df.show(3)
+</code></pre>
+<pre><code>+-------------+----------------+-----------+--------------+---------+-------------------+--------------------+-------+----+---------+-------+-------+
+|fixed acidity|volatile acidity|citric acid|residual sugar|chlorides|free sulfur dioxide|total sulfur dioxide|density|  pH|sulphates|alcohol|quality|
++-------------+----------------+-----------+--------------+---------+-------------------+--------------------+-------+----+---------+-------+-------+
+|          7.4|             0.7|        0.0|           1.9|    0.076|                 11|                  34| 0.9978|3.51|     0.56|    9.4|      5|
+|          7.8|            0.88|        0.0|           2.6|    0.098|                 25|                  67| 0.9968| 3.2|     0.68|    9.8|      5|
+|          7.8|            0.76|       0.04|           2.3|    0.092|                 15|                  54|  0.997|3.26|     0.65|    9.8|      5|
++-------------+----------------+-----------+--------------+---------+-------------------+--------------------+-------+----+---------+-------+-------+
+only showing top 3 rows
+</code></pre>
+<pre><code class="language-python"># 读入本地文件
+# 先在terminal运行 hdfs dfs -copyToLocal /Data/WineData.csv ~/
+# 将hdfs中的文件拷贝到个人目录下
+df = spark.read.format('com.databricks.spark.csv') \
+    .options(header='true', inferschema='true') \
+    .load(&quot;file:///home/lzh/WineData.csv&quot;,header=True)
+df.printSchema()
+</code></pre>
+<pre><code>root
+ |-- fixed acidity: double (nullable = true)
+ |-- volatile acidity: double (nullable = true)
+ |-- citric acid: double (nullable = true)
+ |-- residual sugar: double (nullable = true)
+ |-- chlorides: double (nullable = true)
+ |-- free sulfur dioxide: integer (nullable = true)
+ |-- total sulfur dioxide: integer (nullable = true)
+ |-- density: double (nullable = true)
+ |-- pH: double (nullable = true)
+ |-- sulphates: double (nullable = true)
+ |-- alcohol: double (nullable = true)
+ |-- quality: integer (nullable = true)
+</code></pre>
+<h2 id="_1">命令行终端</h2>
+<p>pyspark已经添加到系统路径，启动一个终端，输入pyspark即可  </p>
+<p><strong>注意</strong>：pyspark中自带了<strong>名为spark的SparkSession和sc的SparkContext</strong>，无需也不能额外创建</p>
+<p><img alt="" src="../../assets/img/pyspark1.png" /></p>
+<p>使用Ctrl+D退出</p>
+<h2 id="spark-submit">spark-submit</h2>
+<p>用spark-submit提交一个python文件形成独立的作业，请参考<a href="https://spark.apache.org/docs/3.0.1/quick-start.html#self-contained-applications">官方文档</a></p>
+<h2 id="pyspark">PySpark入门</h2>
+<p>最好的方法是上课听讲、多动手写代码、出了问题查官方文档、搜索引擎及StackOverflow等。</p>
+<p>以后有必要再补充。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../scala/" class="btn btn-neutral float-right" title="Scala">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../conda/" class="btn btn-neutral" title="Anaconda"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../conda/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../scala/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

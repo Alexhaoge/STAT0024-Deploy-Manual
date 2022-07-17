@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="http://10.40.13.202/mysql/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>MySQL使用说明 - 计算环境使用说明</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "MySQL\u4f7f\u7528\u8bf4\u660e";
+    var mkdocs_page_input_path = "mysql.md";
+    var mkdocs_page_url = "/mysql/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> 计算环境使用说明</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">概述</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">分布式存储与计算</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../dsc/jupyter/">JupyterHub</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dsc/conda/">Anaconda</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dsc/pyspark/">PySpark</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dsc/scala/">Scala</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dsc/hdfs/">HDFS</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dsc/sshlinux/">ssh&Linux常用操作</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dsc/admin/">管理员说明</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">数据库</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">MySQL使用说明</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#mysql_1">登陆MySQL</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_1">命令行方式</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mysql-workbench">MySQL Workbench</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">管理员批量创建用户脚本</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/">关于</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">计算环境使用说明</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>数据库 &raquo;</li>
+        
+      
+    
+    <li>MySQL使用说明</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="mysql">MySQL使用说明</h1>
+<h2 id="mysql_1">登陆MySQL</h2>
+<h3 id="_1">命令行方式</h3>
+<pre><code class="language-shell">mysql -h 10.40.13.202 -P 3306 -u 用户名 -p
+# 然后会有提示输入密码
+# Enter password: 这里输入密码不会显示但是确实是输进去的，按回车结束
+# 经过一堆欢迎界面的废话之后会显示下面这一行就代表登陆成功了
+# mysql&gt;
+</code></pre>
+<h3 id="mysql-workbench">MySQL Workbench</h3>
+<p><a href="https://blog.csdn.net/qq_40995335/article/details/80973466">教程</a></p>
+<ul>
+<li>首先打开MySQL workbench 在首页点击 MySQL Connections 边上的<code>+</code>号  </li>
+</ul>
+<p><img alt="" src="../assets/img/mysql1.png" /></p>
+<ul>
+<li>在弹出的框中填入相应信息  </li>
+</ul>
+<p><img alt="" src="../assets/img/mysql2.png" /></p>
+<ul>
+<li>以上的  default schema表示，如果想要只默认连接某一个特定的数据库，则填上数据库的名称。然后点击测试连接，若显示  </li>
+</ul>
+<p><img alt="" src="../assets/img/mysql3.png" /></p>
+<ul>
+<li>则表示测试连接成功，注意点击Test Connection 旁边的ok才会保存连接  </li>
+</ul>
+<p><img alt="" src="../assets/img/mysql4.png" /></p>
+<ul>
+<li>接下来回到MySQL Workbench 的首页，会发现已经有了新的连接  </li>
+</ul>
+<h2 id="_2">管理员批量创建用户脚本</h2>
+<pre><code class="language-SQL">-- 这个脚本能批量创建用户，用户名为st+学号，对应一个学生自己的同名数据库有所有权限，对于其他数据库有只读权限
+use mysql;
+set global validate_password_policy=0;
+set global validate_password_length=1;
+drop table if exists stu_list;
+create table stu_list(
+    id char(7) PRIMARY KEY,
+    pwd varchar(20)
+);
+-- 这里输入('学号', '密码') 可以学生自己修改，但至少要有一个字符
+insert into stu_list values
+('1810063', 'alex'),
+('1810064', 'bobb');
+
+-- 批量的存储过程
+drop procedure if exists create_stu;
+delimiter ;;
+create DEFINER=`root`@`localhost` procedure create_stu()
+begin
+    declare ids char(7);
+    declare pwds varchar(20);
+    declare done int default false;
+    declare cur cursor for select `id` from `stu_list`;
+    declare continue handler for NOT FOUND set done = true;
+    open cur; -- 开始游标
+    LOOP_LABLE:loop -- 循环
+        FETCH cur INTO ids;
+        select pwd into pwds from stu_list where id=ids;
+        set @name = CONCAT('st', ids);
+        set @create_db_sql = concat('create database if not exists ', @name, ';');
+        PREPARE stmt FROM @create_db_sql;
+        EXECUTE stmt;
+        SET @user_sql = CONCAT('GRANT ALL PRIVILEGES ON ', @name,&quot;.* TO '&quot;, @name, &quot;'@'%' IDENTIFIED BY '&quot;, pwds, &quot;';&quot;);  
+        PREPARE stmt FROM @user_sql;
+        EXECUTE stmt;
+        SET @user_sql = CONCAT('GRANT SELECT ON ', &quot;*.* TO '&quot;, @name, &quot;'@'%';&quot;);
+        PREPARE stmt FROM @user_sql;
+        EXECUTE stmt;
+        FLUSH PRIVILEGES;
+        if done THEN
+            LEAVE LOOP_LABLE;
+        END IF;
+        end LOOP;
+    CLOSE cur;
+    FLUSH PRIVILEGES;
+end; 
+;;
+delimiter ;
+
+-- 调用
+CALL create_stu();
+
+drop database if exists st1810063;
+drop database if exists st1810064;
+drop user if exists st1810063;
+drop user if exists st1810064;
+drop table stu_list;
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../about/" class="btn btn-neutral float-right" title="关于">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../dsc/admin/" class="btn btn-neutral" title="管理员说明"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../dsc/admin/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
