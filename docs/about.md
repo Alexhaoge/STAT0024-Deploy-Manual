@@ -14,6 +14,11 @@
     zlyu@mail.nankai.edu.cn  
     [github.com/Alexhaoge](https://github.com/Alexhaoge)
 
+## 本文档
+使用mkdocs编写，源代码在[https://github.com/Alexhaoge/STAT0024-Deploy-Manual](https://github.com/Alexhaoge/STAT0024-Deploy-Manual)，新任管理员如需更新文档请联系仓库所有者添加修改权限，Github仓库有自动生成[Github Pages](https://alexhaoge.github.io/STAT0024-Deploy-Manual/dsc/admin/)。
+
+文档在服务本地也有使用apache部署，html存放位置/var/www/html/
+
 ## Lisence
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="../assets/img/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可。

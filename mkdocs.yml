@@ -8,11 +8,19 @@ nav:
     - 'Anaconda': 'dsc/conda.md'
     - 'PySpark': 'dsc/pyspark.md'
     - 'Scala': 'dsc/scala.md'
-    - 'HDFS': 'dsc/hdfs.md'
-    - 'ssh&Linux常用操作': 'dsc/sshlinux.md'
-    - '管理员说明': 'dsc/admin.md'
   - '数据库':
-    - 'MySQL使用说明': 'mysql.md'
+    - 'MySQL学生使用说明': 'mysql.md'
+  - '管理手册':
+    - 'JupyterHub': 'admin/jupyter.md'
+    - 'Spark/Hadoop': 'admin/spark_hadoop.md'
+    - 'Rstudio': 'admin/rstudio.md'
+    - 'MySQL': 'admin/mysql.md'
+    - 'ssh&Linux常用操作': 'admin/sshlinux.md'
+    - '文件路径记录': 'admin/fs.md'
+  - '归档':
+    - '归档说明': 'archive/archive.md'
+    - 'HDFS': 'archive/hdfs.md'
+    - '杂项': 'archive/misc.md'
   - '关于': 'about.md'
 # - ['about/admin.md', '关于', '管理员说明']
 # - ['about/license.md', '关于', 'License']

@@ -3,8 +3,21 @@
 ## SSH
 Windows10、Linux、MacOS可以直接在cmd/Powershell/Terminal中输入ssh命令登陆
 ```shell
-ssh 用户名@10.40.13.202
+ssh -p 端口号 -i 密钥文件路径 用户名@10.40.13.202
 ```
+出于安全考虑，我们修改了ssh的一些配置，管理员请单独联系老师或文档编写者获取新配置下的登陆方法
+
+### SSH免密登陆配置
+两种方法：
+1. 自己现有ssh公钥直接追加到`~/.ssh/authorized_keys`中
+2. 新建服务器用户的ssh公私钥，将公钥添加到`authorized_keys`，下载私钥到个人电脑。
+```
+ssh-keygen
+# 按提示连按三次回车
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+# 下载~/.ssh/id_rsa
+```
+
 ### SSH客户端 MobaXterm
 推荐在windows上使用的mobaxterm而不是命令行，[官网](https://mobaxterm.mobatek.net/download-home-edition.html)可能下载比较慢，服务器上保存了安装包
 

@@ -6,7 +6,7 @@
 
 ![](../assets/img/hub1.png)
 
-用户名必须使用"st"加学号，如st1810064，密码必须大于六位且不能使用qwerty等弱密码，不能包含空格或冒号，注册成功时应该会遇到如下提示  
+**用户名必须使用"st"加学号**，如st1810064，密码必须**大于8位**且不能使用qwerty等弱密码，不能包含空格或冒号，注册成功时应该会遇到如下提示  
 
 ![](../assets/img/hub2.png)
 
@@ -20,7 +20,7 @@
 ![](../assets/img/hub4.png)
 
 ### 使用终端
-点击左上角`+`号，并注意切换conda环境到jupyterhub`conda activate jupyterhub`
+点击左上角`+`号，并注意切换conda环境到jupyterhub`conda activate jupyter`
 
 ## 管理JupyterLab和密码
 如需要重启JupyterLab或修改自己账号的密码，从jupyterlab界面的菜单栏点击Hub Control Panel访问管理面版，重启账号或修改密码，新密码仍需满足和注册时一样的要求。
@@ -40,7 +40,7 @@ https://zhuanlan.zhihu.com/p/38612108
 https://www.cnblogs.com/zhrb/p/12174167.html
 
 ## 将自己的conda环境(不推荐)添加到jupyterhub
-如果你创建了自己的conda环境（虽然非常不建议），请不要单独开启个人jupyterlab（未来可能会因为服务器防火墙无法访问），在jupyterhub中注册你自己conda环境的kernel即可
+如果你创建了自己的conda环境（虽然非常不建议），请不要单独开启个人jupyterlab（未来可能会因为服务器防火墙无法访问，而且单独占用服务器资源和端口号），在现有的jupyterhub中注册你自己conda环境的kernel即可
 1. 安装ipykernel
 ```shell
 conda install -n 自己的环境名 ipykernel

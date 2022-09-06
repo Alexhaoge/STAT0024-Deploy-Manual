@@ -22,13 +22,19 @@ Anaconda用conda管理多个python和其他语言的环境，服务器上的cond
 
 通过`conda env list`可以看到所有的conda环境。
 
+### PySpark所在的conda环境
+PySpark和一些常用的科学计算库（如Pandas/NumPy/SciPy/Scikit-Learn）均在名为`jupyter`的conda环境，如果是ssh或者jupyterlab的命令行界面使用，需要先切换conda环境。**默认的Base下因为python版本问题无法正常使用pyspark！**
+```bash
+conda activate jupyter
+```
+
 ### 创建自己的conda环境
-jupyterhub环境经过2020年秋季学期的使用，已经安装了课程需要的所有包，**同学们使用这个环境就够了，原则上不要安装自己的conda环境**
+现有的“jupyter”环境已经安装了课程需要的所有包，**同学们使用这个环境就够了，原则上不要安装自己的conda环境**
 
 **创建环境会很占用磁盘**，如果只是安装一两个常用包，请联系老师或平台管理员安装
 
-如果确实需要自己创建conda环境，**请一定要将存储在个人目录下(/home目录下)，不要在`/home`之外的目录存储！**，如果未来服务器空间不足，可能会删除普通用户的conda环境。
+如果确实需要自己创建conda环境，**请一定要将存储在个人家目录下(一般是/data/home/stxxxxxxx目录下)，不要在家目录之外的目录存储！**，如果未来服务器空间不足，可能会删除普通用户的conda环境。
 ```shell
-conda create -p 创建的环境的存储路径 python=3.7
+conda create -p 创建的环境的存储路径 python=3.7 # 选择python版本，如果需要连接pyspark需要使用3.10
 conda activate 创建环境名 # 进入环境
 ```
