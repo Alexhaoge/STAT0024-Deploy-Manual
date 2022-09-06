@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Scala - 计算环境使用说明</title>
+  <title>MySQL - 计算环境使用说明</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Scala";
-    var mkdocs_page_input_path = "dsc\\scala.md";
-    var mkdocs_page_url = "/dsc/scala/";
+    var mkdocs_page_name = "MySQL";
+    var mkdocs_page_input_path = "admin\\mysql.md";
+    var mkdocs_page_url = "/admin/mysql/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
@@ -59,33 +59,19 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../jupyter/">JupyterHub</a>
+    <a class="" href="../../dsc/jupyter/">JupyterHub</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../conda/">Anaconda</a>
+    <a class="" href="../../dsc/conda/">Anaconda</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../pyspark/">PySpark</a>
+    <a class="" href="../../dsc/pyspark/">PySpark</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Scala</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#scala">Scala使用说明</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#scala_1">使用普通scala</a></li>
-        
-            <li><a class="toctree-l4" href="#spark-shell">使用spark-shell</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../dsc/scala/">Scala</a>
                 </li>
     </ul>
 	    </li>
@@ -107,27 +93,43 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../admin/jupyter/">JupyterHub</a>
+    <a class="" href="../jupyter/">JupyterHub</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../admin/spark_hadoop/">Spark/Hadoop</a>
+    <a class="" href="../spark_hadoop/">Spark/Hadoop</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../admin/rstudio/">Rstudio</a>
+    <a class="" href="../rstudio/">Rstudio</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">MySQL</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#mysql">MySQL数据库管理</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">创建管理员</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">修改某个用户密码</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">管理员批量创建用户脚本</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../admin/mysql/">MySQL</a>
+    <a class="" href="../sshlinux/">ssh&Linux常用操作</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../admin/sshlinux/">ssh&Linux常用操作</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../admin/fs/">文件路径记录</a>
+    <a class="" href="../fs/">文件路径记录</a>
                 </li>
     </ul>
 	    </li>
@@ -178,11 +180,11 @@
     
       
         
-          <li>分布式存储与计算 &raquo;</li>
+          <li>管理手册 &raquo;</li>
         
       
     
-    <li>Scala</li>
+    <li>MySQL</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -192,20 +194,73 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="scala">Scala使用说明</h1>
-<!-- ## 在Notebook中使用Scala Kernel
-目前服务器上的Jupyter Scala Kernel仍在试验阶段，可以使用其运行一些Scala的简单代码，加载Scala基础库，但是还未安装Spark的Scala接口。未来如果配置完成，会更新此文档。 -->
-<h2 id="scala_1">使用普通scala</h2>
-<p>命令行中输入<code>scala</code>即可</p>
-<h2 id="spark-shell">使用spark-shell</h2>
-<p>spark-shell是spark启动的交互模式的Scala语言命令行，在输入命令后可以立刻查看结果</p>
-<p>由于服务器已有spark standalone在运行，因此启动spark-shell时请直接连接到本地的master节点。默认情况下输入<code>spark-shell</code>会自动连接，也通过master选项直接指定</p>
-<pre><code>spark-shell --master spark://10.40.13.202:7077
+                <h1 id="mysql">MySQL数据库管理</h1>
+<h2 id="_1">创建管理员</h2>
+<pre><code class="language-SQL">create user 'username'@'%' identified by 'password';
+grant all privileges on *.* to 'username'@'%';
 </code></pre>
-<p><strong>注意1</strong>：<strong>严禁指定<code>master</code>为<code>local[*]</code></strong></p>
-<p><strong>注意2</strong>：spark-shell启动时自带了<strong>名为spark的SparkSession和sc的SparkContext</strong>，<strong>无需也不应该额外创建SparkContext</strong></p>
-<p><img alt="" src="../../assets/img/scala1.png" /></p>
-<p>使用Ctrl+D退出Spark Shell</p>
+<h2 id="_2">修改某个用户密码</h2>
+<pre><code class="language-SQL">alter user 'username'@'%' identified by 'newpassword';
+</code></pre>
+<h2 id="_3">管理员批量创建用户脚本</h2>
+<pre><code class="language-SQL">-- 这个脚本能批量创建用户，用户名为st+学号，对应一个学生自己的同名数据库有所有权限，对于其他数据库有只读权限
+use mysql;
+set global validate_password_policy=0;
+set global validate_password_length=1;
+drop table if exists stu_list;
+create table stu_list(
+    id char(7) PRIMARY KEY,
+    pwd varchar(20)
+);
+-- 这里输入('学号', '密码') 可以学生自己修改，但至少要有一个字符
+insert into stu_list values
+('1810063', 'alex'),
+('1810064', 'bobb');
+
+-- 批量的存储过程
+drop procedure if exists create_stu;
+delimiter ;;
+create DEFINER=`root`@`localhost` procedure create_stu()
+begin
+    declare ids char(7);
+    declare pwds varchar(20);
+    declare done int default false;
+    declare cur cursor for select `id` from `stu_list`;
+    declare continue handler for NOT FOUND set done = true;
+    open cur; -- 开始游标
+    LOOP_LABLE:loop
+        FETCH cur INTO ids;
+        select pwd into pwds from stu_list where id=ids;
+        set @name = CONCAT('st', ids);
+        set @create_db_sql = concat('create database if not exists ', @name, ';');
+        PREPARE stmt FROM @create_db_sql;
+        EXECUTE stmt;
+        SET @user_sql = CONCAT('GRANT ALL PRIVILEGES ON ', @name,&quot;.* TO '&quot;, @name, &quot;'@'%' IDENTIFIED BY '&quot;, pwds, &quot;';&quot;);  
+        PREPARE stmt FROM @user_sql;
+        EXECUTE stmt;
+        SET @user_sql = CONCAT('GRANT SELECT ON ', &quot;*.* TO '&quot;, @name, &quot;'@'%';&quot;);
+        PREPARE stmt FROM @user_sql;
+        EXECUTE stmt;
+        FLUSH PRIVILEGES;
+        if done THEN
+            LEAVE LOOP_LABLE;
+        END IF;
+        end LOOP;
+    CLOSE cur;
+    FLUSH PRIVILEGES;
+end; 
+;;
+delimiter ;
+
+-- 调用
+CALL create_stu();
+
+drop database if exists st1810063;
+drop database if exists st1810064;
+drop user if exists st1810063;
+drop user if exists st1810064;
+drop table stu_list;
+</code></pre>
               
             </div>
           </div>
@@ -213,10 +268,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../mysql/" class="btn btn-neutral float-right" title="MySQL学生使用说明">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../sshlinux/" class="btn btn-neutral float-right" title="ssh&Linux常用操作">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../pyspark/" class="btn btn-neutral" title="PySpark"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../rstudio/" class="btn btn-neutral" title="Rstudio"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -242,10 +297,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../pyspark/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../rstudio/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../mysql/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../sshlinux/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

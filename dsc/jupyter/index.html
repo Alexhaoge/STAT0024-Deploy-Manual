@@ -93,18 +93,6 @@
                     
     <a class="" href="../scala/">Scala</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../hdfs/">HDFS</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../sshlinux/">ssh&Linux常用操作</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../admin/">管理员说明</a>
-                </li>
     </ul>
 	    </li>
           
@@ -114,7 +102,57 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../mysql/">MySQL使用说明</a>
+    <a class="" href="../../mysql/">MySQL学生使用说明</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">管理手册</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../admin/jupyter/">JupyterHub</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/spark_hadoop/">Spark/Hadoop</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/rstudio/">Rstudio</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/mysql/">MySQL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/sshlinux/">ssh&Linux常用操作</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/fs/">文件路径记录</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">归档</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../archive/archive/">归档说明</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../archive/hdfs/">HDFS</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../archive/misc/">杂项</a>
                 </li>
     </ul>
 	    </li>
@@ -166,7 +204,7 @@
 <h2 id="_1">注册和登陆账号</h2>
 <p>新用户第一次访问该链接会转到登陆界面，需要点击“signup”自行注册账号  </p>
 <p><img alt="" src="../../assets/img/hub1.png" /></p>
-<p>用户名必须使用"st"加学号，如st1810064，密码必须大于六位且不能使用qwerty等弱密码，不能包含空格或冒号，注册成功时应该会遇到如下提示  </p>
+<p><strong>用户名必须使用"st"加学号</strong>，如st1810064，密码必须<strong>大于8位</strong>且不能使用qwerty等弱密码，不能包含空格或冒号，注册成功时应该会遇到如下提示  </p>
 <p><img alt="" src="../../assets/img/hub2.png" /></p>
 <p>此时等待管理员审核即可，如果长时间没有通过，请联系老师和管理员。管理员通过后即可登陆。首次登陆可能会遇到如下界面后出现长时间白屏，请耐心等待，以后登陆会快很多。</p>
 <p><img alt="" src="../../assets/img/hub3.png" /></p>
@@ -174,7 +212,7 @@
 <p>我们使用的Jupyter环境为JupyterLab，比Jupyter Notebook功能更加强大，主要界面说明如下：</p>
 <p><img alt="" src="../../assets/img/hub4.png" /></p>
 <h3 id="_2">使用终端</h3>
-<p>点击左上角<code>+</code>号，并注意切换conda环境到jupyterhub<code>conda activate jupyterhub</code></p>
+<p>点击左上角<code>+</code>号，并注意切换conda环境到jupyterhub<code>conda activate jupyter</code></p>
 <h2 id="jupyterlab_1">管理JupyterLab和密码</h2>
 <p>如需要重启JupyterLab或修改自己账号的密码，从jupyterlab界面的菜单栏点击Hub Control Panel访问管理面版，重启账号或修改密码，新密码仍需满足和注册时一样的要求。</p>
 <p><strong>注意</strong>：这里修改密码会同时修改对应Linux用户的密码，但是ssh时修改Linux用户的密码，Jupyterhub上的密码会保持不变。</p>
@@ -188,7 +226,7 @@ https://cloud.tencent.com/developer/news/323834
 https://zhuanlan.zhihu.com/p/38612108
 https://www.cnblogs.com/zhrb/p/12174167.html</p>
 <h2 id="condajupyterhub">将自己的conda环境(不推荐)添加到jupyterhub</h2>
-<p>如果你创建了自己的conda环境（虽然非常不建议），请不要单独开启个人jupyterlab（未来可能会因为服务器防火墙无法访问），在jupyterhub中注册你自己conda环境的kernel即可
+<p>如果你创建了自己的conda环境（虽然非常不建议），请不要单独开启个人jupyterlab（未来可能会因为服务器防火墙无法访问，而且单独占用服务器资源和端口号），在现有的jupyterhub中注册你自己conda环境的kernel即可
 1. 安装ipykernel</p>
 <pre><code class="language-shell">conda install -n 自己的环境名 ipykernel
 </code></pre>

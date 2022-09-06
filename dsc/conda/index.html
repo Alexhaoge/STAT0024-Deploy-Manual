@@ -87,18 +87,6 @@
                     
     <a class="" href="../scala/">Scala</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../hdfs/">HDFS</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../sshlinux/">ssh&Linux常用操作</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../admin/">管理员说明</a>
-                </li>
     </ul>
 	    </li>
           
@@ -108,7 +96,57 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../mysql/">MySQL使用说明</a>
+    <a class="" href="../../mysql/">MySQL学生使用说明</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">管理手册</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../admin/jupyter/">JupyterHub</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/spark_hadoop/">Spark/Hadoop</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/rstudio/">Rstudio</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/mysql/">MySQL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/sshlinux/">ssh&Linux常用操作</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/fs/">文件路径记录</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">归档</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../archive/archive/">归档说明</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../archive/hdfs/">HDFS</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../archive/misc/">杂项</a>
                 </li>
     </ul>
 	    </li>
@@ -170,11 +208,15 @@ conda deacivate 环境名 # 退出环境
 <h2 id="conda">conda环境</h2>
 <p>Anaconda用conda管理多个python和其他语言的环境，服务器上的conda环境有base和jupyterhub两个，base是默认的，但我们主要的pyspark和其他包都安装在jupyterhub这个环境。记得通过conda activate切换环境，不然可能会遇到缺少python库的错误。</p>
 <p>通过<code>conda env list</code>可以看到所有的conda环境。</p>
+<h3 id="pysparkconda">PySpark所在的conda环境</h3>
+<p>PySpark和一些常用的科学计算库（如Pandas/NumPy/SciPy/Scikit-Learn）均在名为<code>jupyter</code>的conda环境，如果是ssh或者jupyterlab的命令行界面使用，需要先切换conda环境。<strong>默认的Base下因为python版本问题无法正常使用pyspark！</strong></p>
+<pre><code class="language-bash">conda activate jupyter
+</code></pre>
 <h3 id="conda_1">创建自己的conda环境</h3>
-<p>jupyterhub环境经过2020年秋季学期的使用，已经安装了课程需要的所有包，<strong>同学们使用这个环境就够了，原则上不要安装自己的conda环境</strong></p>
+<p>现有的“jupyter”环境已经安装了课程需要的所有包，<strong>同学们使用这个环境就够了，原则上不要安装自己的conda环境</strong></p>
 <p><strong>创建环境会很占用磁盘</strong>，如果只是安装一两个常用包，请联系老师或平台管理员安装</p>
-<p>如果确实需要自己创建conda环境，<strong>请一定要将存储在个人目录下(/home目录下)，不要在<code>/home</code>之外的目录存储！</strong>，如果未来服务器空间不足，可能会删除普通用户的conda环境。</p>
-<pre><code class="language-shell">conda create -p 创建的环境的存储路径 python=3.7
+<p>如果确实需要自己创建conda环境，<strong>请一定要将存储在个人家目录下(一般是/data/home/stxxxxxxx目录下)，不要在家目录之外的目录存储！</strong>，如果未来服务器空间不足，可能会删除普通用户的conda环境。</p>
+<pre><code class="language-shell">conda create -p 创建的环境的存储路径 python=3.7 # 选择python版本，如果需要连接pyspark需要使用3.10
 conda activate 创建环境名 # 进入环境
 </code></pre>
               
