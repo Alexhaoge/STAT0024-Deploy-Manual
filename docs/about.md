@@ -11,7 +11,7 @@
     zjt@nankai.edu.cn  
     范孙楼230室  
 + 环境配置和文档编写：吕之豪  
-    zlyu@mail.nankai.edu.cn  
+    1810064@mail.nankai.edu.cn  
     [github.com/Alexhaoge](https://github.com/Alexhaoge)
 
 ## 本文档
