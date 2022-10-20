@@ -21,13 +21,13 @@ $SPARK_HOME/sbin/start-worker.sh
 Spark不能使用root启动，因为启动用户通过ssh连接master和worker，而root出于安全考虑被禁止ssh登录
 
 ## WebUI
-HDFS 10.40.13.202:50070  
-Spark Master节点 10.40.13.202:8080  
-spark-shell/pyspark的应用监控：10.40.13.202:4040,4041,4042,...
+HDFS {{config.extra.site_ip}}:50070  
+Spark Master节点 {{config.extra.site_ip}}:8080  
+spark-shell/pyspark的应用监控：{{config.extra.site_ip}}:4040,4041,4042,...
 为避免占用过多服务器资源，spark-defaults.conf中我们可以禁用spark-shell/pyspark的ui（`spark.ui.enabled false`）。
 
 ### 通过WebUI监控spark作业
-在10.40.13.202:8080中可以看到当前spark中运行的application，可以手动结束占用资源过大的作业，也可以通过网页提供的链接访问具体某个作业的WebUI，如果网页访问失败，请注意网址域名是否变成了chenserver.chen.server，将其改为10.40.13.202重新访问即可。
+在{{config.extra.site_ip}}:8080中可以看到当前spark中运行的application，可以手动结束占用资源过大的作业，也可以通过网页提供的链接访问具体某个作业的WebUI，如果网页访问失败，请注意网址域名是否变成了chenserver.chen.server，将其改为{{config.extra.site_ip}}重新访问即可。
 
 另外，请通过`netstat -nltp`命令可以查看4040、4041、4042...这一族端口的开启情况，并结合8080网页的作业情况对比，是否有学生用户自行创建了新的spark cluster，如果有，请及时终止其进程。
 
@@ -80,7 +80,7 @@ spark.cores.max                                         4
 ### 示例配置文件
 spark-env.sh
 ```shell
-SPARK_LOCAL_IP=10.40.13.202
+SPARK_LOCAL_IP={{config.extra.site_ip}}
 SPARK_LOG_DIR=/data/spark/logs
 
 SPARK_SSH_OPTS="-p 9933"
@@ -93,7 +93,7 @@ PYSPARK_DRIVER_PYTHON=/usr/local/anaconda3/envs/jupyter/bin/python
 ```
 spark-defaults.conf
 ```shell
-spark.master                    spark://10.40.13.202:7077
+spark.master                    spark://{{config.extra.site_ip}}:7077
 spark.dynamicAllocation.enabled                         true
 spark.dynamicAllocation.executorIdleTimeout             30s
 spark.dynamicAllocation.cachedExecutorIdleTimeout       2d

@@ -1,5 +1,6 @@
 site_name: 计算环境使用说明
-site_url: http://10.40.13.202
+site_url: http://10.40.13.225/
+repo_url: https://github.com/Alexhaoge/STAT0024-Deploy-Manual
 
 nav:
   - '概述': 'index.md'
@@ -27,3 +28,9 @@ nav:
 
 theme:
   name: readthedocs
+
+plugins:
+  - macros
+
+extra:
+    site_ip: 10.40.13.225

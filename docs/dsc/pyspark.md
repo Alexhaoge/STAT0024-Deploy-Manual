@@ -27,7 +27,7 @@ os.environ['PYSPARK_PYTHON']='/usr/local/anaconda3/envs/jupyter/bin/python'
 os.environ['PYSPARK_DRIVER_PYTHON']='/usr/local/anaconda3/envs/jupyter/bin/python'
 import pyspark
 # 创建spark session
-spark = pyspark.sql.SparkSession.builder.master('spark://10.40.13.202:7077').getOrCreate()
+spark = pyspark.sql.SparkSession.builder.master('spark://{{config.extra.site_ip}}:7077').getOrCreate()
 ```
 
     Setting default log level to "WARN".
@@ -56,7 +56,7 @@ df.show()
 ## 命令行终端
 pyspark已经添加到系统路径，启动一个终端即可输入，由于服务器已有spark standalone在运行，因此启动时请直接连接到本地的master节点。默认情况下输入`pyspark`会自动连接，也通过master选项直接指定
 ```
-pyspark --master spark://10.40.13.202:7077
+pyspark --master spark://{{config.extra.site_ip}}:7077
 ```
 
 **注意1**：**严禁指定`master`为`local[*]`**

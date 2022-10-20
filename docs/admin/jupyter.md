@@ -1,6 +1,6 @@
 # 管理JupyterHub
 ## 前台管理JupyterHub
-从jupyterlab界面的菜单栏点击Hub Control Panel或者10.40.13.202:9500/hub/admin访问管理面版  
+从jupyterlab界面的菜单栏点击Hub Control Panel或者{{config.extra.site_ip}}:9500/hub/admin访问管理面版  
 
 ![](../assets/img/hub5.png)
 
@@ -11,13 +11,13 @@
 + Authorize Users：激活、反激活用户。新注册用户需要管理员授权激活，反激活后用户无法登陆，但数据仍然保留。
 + Start/Stop Server： 启动关闭用户的JupyterHub
 + Access Server：访问用户的JupyterHub，可以通过这种方式协助学生调试
-+ change password：修改用户密码，这在学生忘记密码需要重置时非常有用（也可直接访问10.40.13.202:9500/hub/change-password/用户名）
++ change password：修改用户密码，这在学生忘记密码需要重置时非常有用（也可直接访问{{config.extra.site_ip}}:9500/hub/change-password/用户名）
 + edit user： 修改用户名，添加管理权限
 + delete user：删除用户，连带会删除系统用户和该用户所有数据（可能hdfs数据还会保留）
 + Add Users：因为jupyterhub的登陆验证器重新开发，这个添加用户功能目前基本上不起作用，不应该使用，新增用户应由用户自行注册后管理员审核通过产生。
 
 ### 授权激活/反激活用户
-管理界面点击"Authorize Users"或访问[http://10.40.13.202/hub/authorize](http://10.40.13.202/hub/authorize)可以激活新注册用户，或者反激活一个用户使其无法登陆，界面中的discard等价于删除用户，连带会删除系统用户和该用户所有数据（可能hdfs数据还会保留）
+管理界面点击"Authorize Users"或访问[http://{{config.extra.site_ip}}/hub/authorize](http://{{config.extra.site_ip}}/hub/authorize)可以激活新注册用户，或者反激活一个用户使其无法登陆，界面中的discard等价于删除用户，连带会删除系统用户和该用户所有数据（可能hdfs数据还会保留）
 
 ![](../assets/img/admin2.png)
 

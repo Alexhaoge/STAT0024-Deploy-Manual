@@ -3,7 +3,7 @@
 ## SSH
 Windows10、Linux、MacOS可以直接在cmd/Powershell/Terminal中输入ssh命令登陆
 ```shell
-ssh -p 端口号 -i 密钥文件路径 用户名@10.40.13.202
+ssh -p 端口号 -i 密钥文件路径 用户名@{{config.extra.site_ip}}
 ```
 出于安全考虑，我们修改了ssh的一些配置，管理员请单独联系老师或文档编写者获取新配置下的登陆方法
 

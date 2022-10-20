@@ -30,7 +30,7 @@ HDFS（Hadoop Distributed File System），作为Google File System（GFS）的�
 ## HDFS入门
 用于HDFS是单独的文件系统，所以里面有什么文件在JupyterHub没法直接展示，但是我们可以通过命令行或者HDFS的web界面查看，这样才知道数据集在哪儿怎么读。
 ### 最简单的方式：webUI
-访问http://10.40.13.202:50070/即可访问hdfs的管理节点（namenode），选择Utilities中的Browse the file system即可查看
+访问http://{{config.extra.site_ip}}:50070/即可访问hdfs的管理节点（namenode），选择Utilities中的Browse the file system即可查看
 ![](../assets/img/hdfs1.png)
 ### 使用hdfs dfs命令
 web界面虽然直观，但在做批量文件操作时非常不方便，所以建议在JupyterHub的Terminal中使用`hdfs dfs`系列命令访问。作为初学者，我们先了解hdfs的增删改查就够了。

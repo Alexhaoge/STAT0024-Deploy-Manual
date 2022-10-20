@@ -1,5 +1,5 @@
 # Rstudio Server 使用说明
-服务上安装了Rstuio Server，地址为[http://10.40.13.202:8787](http://10.40.13.202:8787)。用户名和密码与linux/JupyterHub相同
+服务上安装了Rstuio Server，地址为[http://{{config.extra.site_ip}}:8787](http://{{config.extra.site_ip}}:8787)。用户名和密码与linux/JupyterHub相同
 
 鉴于资源有限，不建议对学生开放。我们设置了用户组限制，必须在rstudio-users用户组才能登陆，通过如下命令将用户添加至用户组
 ```shell

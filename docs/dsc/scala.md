@@ -9,7 +9,7 @@ spark-shell是spark启动的交互模式的Scala语言命令行，在输入命�
 
 由于服务器已有spark standalone在运行，因此启动spark-shell时请直接连接到本地的master节点。默认情况下输入`spark-shell`会自动连接，也通过master选项直接指定
 ```
-spark-shell --master spark://10.40.13.202:7077
+spark-shell --master spark://{{config.extra.site_ip}}:7077
 ```
 
 **注意1**：**严禁指定`master`为`local[*]`**
