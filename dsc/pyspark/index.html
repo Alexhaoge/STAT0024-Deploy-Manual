@@ -37,11 +37,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> 计算环境使用说明</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -191,6 +187,9 @@
     <li>PySpark</li>
     <li class="wy-breadcrumbs-aside">
       
+        <a href="https://github.com/Alexhaoge/STAT0024-Deploy-Manual/edit/master/docs/dsc/pyspark.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
     </li>
   </ul>
   <hr/>
@@ -219,7 +218,7 @@ os.environ['PYSPARK_PYTHON']='/usr/local/anaconda3/envs/jupyter/bin/python'
 os.environ['PYSPARK_DRIVER_PYTHON']='/usr/local/anaconda3/envs/jupyter/bin/python'
 import pyspark
 # 创建spark session
-spark = pyspark.sql.SparkSession.builder.master('spark://10.40.13.202:7077').getOrCreate()
+spark = pyspark.sql.SparkSession.builder.master('spark://10.40.13.225:7077').getOrCreate()
 </code></pre>
 <pre><code>Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
@@ -241,7 +240,7 @@ df.show()
 </code></pre>
 <h2 id="_2">命令行终端</h2>
 <p>pyspark已经添加到系统路径，启动一个终端即可输入，由于服务器已有spark standalone在运行，因此启动时请直接连接到本地的master节点。默认情况下输入<code>pyspark</code>会自动连接，也通过master选项直接指定</p>
-<pre><code>pyspark --master spark://10.40.13.202:7077
+<pre><code>pyspark --master spark://10.40.13.225:7077
 </code></pre>
 <p><strong>注意1</strong>：<strong>严禁指定<code>master</code>为<code>local[*]</code></strong></p>
 <p><strong>注意2</strong>：pyspark中自带了<strong>名为spark的SparkSession和sc的SparkContext</strong>，无需也不应该额外创建</p>
@@ -287,6 +286,8 @@ df.show()
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
+          <a href="https://github.com/Alexhaoge/STAT0024-Deploy-Manual/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
       
         <span><a href="../conda/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
@@ -297,7 +298,6 @@ df.show()
 </div>
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
 
 </body>
 </html>

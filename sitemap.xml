@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>http://10.40.13.202/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/dsc/jupyter/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/dsc/jupyter/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/dsc/conda/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/dsc/conda/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/dsc/pyspark/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/dsc/pyspark/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/dsc/scala/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/dsc/scala/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/mysql/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/mysql/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/admin/jupyter/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/admin/jupyter/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/admin/spark_hadoop/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/admin/spark_hadoop/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/admin/rstudio/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/admin/rstudio/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/admin/mysql/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/admin/mysql/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/admin/sshlinux/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/admin/sshlinux/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/admin/fs/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/admin/fs/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/archive/archive/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/archive/archive/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/archive/hdfs/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/archive/hdfs/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/archive/misc/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/archive/misc/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://10.40.13.202/about/</loc>
-     <lastmod>2022-09-06</lastmod>
+     <loc>http://10.40.13.225/about/</loc>
+     <lastmod>2022-10-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

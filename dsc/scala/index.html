@@ -37,11 +37,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> 计算环境使用说明</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -185,6 +181,9 @@
     <li>Scala</li>
     <li class="wy-breadcrumbs-aside">
       
+        <a href="https://github.com/Alexhaoge/STAT0024-Deploy-Manual/edit/master/docs/dsc/scala.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
     </li>
   </ul>
   <hr/>
@@ -200,7 +199,7 @@
 <h2 id="spark-shell">使用spark-shell</h2>
 <p>spark-shell是spark启动的交互模式的Scala语言命令行，在输入命令后可以立刻查看结果</p>
 <p>由于服务器已有spark standalone在运行，因此启动spark-shell时请直接连接到本地的master节点。默认情况下输入<code>spark-shell</code>会自动连接，也通过master选项直接指定</p>
-<pre><code>spark-shell --master spark://10.40.13.202:7077
+<pre><code>spark-shell --master spark://10.40.13.225:7077
 </code></pre>
 <p><strong>注意1</strong>：<strong>严禁指定<code>master</code>为<code>local[*]</code></strong></p>
 <p><strong>注意2</strong>：spark-shell启动时自带了<strong>名为spark的SparkSession和sc的SparkContext</strong>，<strong>无需也不应该额外创建SparkContext</strong></p>
@@ -241,6 +240,8 @@
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
+          <a href="https://github.com/Alexhaoge/STAT0024-Deploy-Manual/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
       
         <span><a href="../pyspark/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
@@ -251,7 +252,6 @@
 </div>
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
 
 </body>
 </html>

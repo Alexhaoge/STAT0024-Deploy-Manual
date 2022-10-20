@@ -37,11 +37,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> 计算环境使用说明</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -189,6 +185,9 @@
     <li>HDFS</li>
     <li class="wy-breadcrumbs-aside">
       
+        <a href="https://github.com/Alexhaoge/STAT0024-Deploy-Manual/edit/master/docs/archive/hdfs.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
     </li>
   </ul>
   <hr/>
@@ -219,7 +218,7 @@
 <h2 id="hdfs_2">HDFS入门</h2>
 <p>用于HDFS是单独的文件系统，所以里面有什么文件在JupyterHub没法直接展示，但是我们可以通过命令行或者HDFS的web界面查看，这样才知道数据集在哪儿怎么读。</p>
 <h3 id="webui">最简单的方式：webUI</h3>
-<p>访问http://10.40.13.202:50070/即可访问hdfs的管理节点（namenode），选择Utilities中的Browse the file system即可查看
+<p>访问http://10.40.13.225:50070/即可访问hdfs的管理节点（namenode），选择Utilities中的Browse the file system即可查看
 <img alt="" src="../../assets/img/hdfs1.png" /></p>
 <h3 id="hdfs-dfs">使用hdfs dfs命令</h3>
 <p>web界面虽然直观，但在做批量文件操作时非常不方便，所以建议在JupyterHub的Terminal中使用<code>hdfs dfs</code>系列命令访问。作为初学者，我们先了解hdfs的增删改查就够了。</p>
@@ -301,6 +300,8 @@ HDFS命令大全https://blog.csdn.net/m0_38003171/article/details/79086780</p>
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
+          <a href="https://github.com/Alexhaoge/STAT0024-Deploy-Manual/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
       
         <span><a href="../archive/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
@@ -311,7 +312,6 @@ HDFS命令大全https://blog.csdn.net/m0_38003171/article/details/79086780</p>
 </div>
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
 
 </body>
 </html>
