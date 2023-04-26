@@ -15,7 +15,7 @@ spark和hadoop配置成系统服务比较困难，目前加到了开机项，但
 目前spark集群有一个master，一个worker节点，则启动时命令如下
 ```shell
 $SPARK_HOME/sbin/start-master.sh
-$SPARK_HOME/sbin/start-worker.sh 
+$SPARK_HOME/sbin/start-worker.sh spark://10.40.13.225:7077
 ```
 
 Spark不能使用root启动，因为启动用户通过ssh连接master和worker，而root出于安全考虑被禁止ssh登录
