@@ -209,7 +209,7 @@ $HADOOP_HOME/sbin/stop-dfs.sh # 关闭hdfs
 <p>spark和hadoop配置成系统服务比较困难，目前加到了开机项，但不保证遇到一些特殊原因会自行关闭，如果发现连接不上，需要手动启动。</p>
 <p>目前spark集群有一个master，一个worker节点，则启动时命令如下</p>
 <pre><code class="language-shell">$SPARK_HOME/sbin/start-master.sh
-$SPARK_HOME/sbin/start-worker.sh 
+$SPARK_HOME/sbin/start-worker.sh spark://10.40.13.225:7077
 </code></pre>
 <p>Spark不能使用root启动，因为启动用户通过ssh连接master和worker，而root出于安全考虑被禁止ssh登录</p>
 <h2 id="webui">WebUI</h2>
